@@ -16,8 +16,8 @@ const Post = ({ post }) => {
           </span>
         </h5>
         <p className="card-text" >{post.body}</p>
-        {post.tag.map((tag) => (<span key={tag} className="badge text-bg-primary hashtag">{tag}</span>))}
-        <div className="alert areaction" ><FcLike />
+        {post.tags.map((tags) => (<span key={tags} className="badge text-bg-primary hashtag">{tags}</span>))}
+        <div className="reaction"  ><FcLike />
           <div className="reaction-count">{post.reaction}</div>
         </div>
 

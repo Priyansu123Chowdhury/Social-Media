@@ -1,22 +1,27 @@
 import { useContext, useRef } from "react";
-import PostList from "./PostList";
+import { PostList } from "../store/post-list-store";
 const CreatePost = () => {
-  const { addPost } = useContext(PostList)
+  const { addPost } = useContext(PostList);
 
   const userIdElement = useRef();
   const postTitleElement = useRef();
   const postBodyElement = useRef();
   const reactionElement = useRef();
-  const hashtagsElement = useRef();
+  const tagsElement = useRef();
   const handleSubmit = (event) => {
     event.preventDefault();
     const userId = userIdElement.current.value;
     const postTitle = postBodyElement.current.value;
     const postBody = postBodyElement.current.value;
     const reaction = reactionElement.current.value;
-    const hashtags = hashtagsElement.current.value.split(/(\s+)/);
-    addPost(userId, postTitle, postBody, reaction, hashtags)
-  }
+    const tags = tagsElement.current.value.split(/(\s+)/);
+    addPost(userId, postTitle, postBody, reaction, tags);
+    userIdElement.current.value = "";
+    postBodyElement.current.value = "";
+    postBodyElement.current.value = "";
+    reactionElement.current.value = "";
+    tagsElement.current.value = "";
+  };
   return (
     <form className="create-post" onSubmit={handleSubmit}>
       <div className="mb-3">
@@ -49,7 +54,7 @@ const CreatePost = () => {
         </label>
         <textarea
           ref={postBodyElement}
-          rows='4'
+          rows="4"
           type="text"
           className="form-control"
           id="body"
@@ -57,14 +62,14 @@ const CreatePost = () => {
         />
       </div>
       <div className="mb-3">
-        <label htmlFor="hashtags" className="form-label">
+        <label htmlFor="tags" className="form-label">
           Enter Your Hashtags here...
         </label>
         <input
           type="text"
-          ref={hashtagsElement}
+          ref={tagsElement}
           className="form-control"
-          id="hashtags"
+          id="tags"
           placeholder="Please enter tags using space"
         />
       </div>
