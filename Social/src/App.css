@@ -16,13 +16,15 @@
   border-radius: 0px;
 }
 .reaction{
-
+display: flex;
   margin: 15px 0 0 0;
+  
 }
-.reaction-count {
-  margin-left: 22px;
-  margin-top: -21px;
+
+.reaction:hover{
+  cursor: pointer;
 }
+
 .create-post{
   width: 80%;
   margin-top: 50px ;
@@ -38,4 +40,18 @@ margin:  100px 0;
 .spinner-size{
   width:5rem ;
   height: 5rem;
+}
+.reaction-like{
+  display: flex;
+  margin: 15px;
+}
+.reaction-dislike{
+  display: flex;
+  margin: 15px;
+}
+.LikeCount{
+  margin: -5px 0 0px 7px;
+}
+.disLikeCount{
+  margin: -5px 0 0px 7px;
 }
